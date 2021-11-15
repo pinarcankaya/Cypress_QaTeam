@@ -3,28 +3,25 @@
 context("Form Elemanlari",()=>{
     const url="https://test.iyikisordun.com/pages/forms/advanced.html"
 
-    it.skip("Input Box",()=>{
+
+    it.skip("input Box",()=>{
         cy.visit(url)
-        cy.wait(3000)
-       cy.xpath("(//span[@role='presentation'])[1]").click()
-       cy.wait(3000)
+        cy.xpath("(//span[@role='presentation'])[3]").click()
+       
        cy.xpath("(//input[@class='select2-search__field'])[4]").type("Alaska").type('{enter}')
-       //cy.wait(2000)
-       //cy.xpath("(//input[@class='select2-search__field'])[4]").type('{enter}')
+
     })
     it("check Box",()=>{
         cy.visit(url)
-        cy.wait(2000)
-       // cy.get("[type='checkbox']").check("pr2",{force: true}).should("be.checked")  //tek checkbox secimi
-      
-         cy.get("[type='checkbox']").check(["pr2","dg2"],{force: true}).should("be.checked") //2 checkbox secimi
-       
-         //type degeri ve value degeri varsa loacte boyle olabilir
-        //should be checked ile dogrulama yaptik
-    })
+      //  cy.get("[type='checkbox']").check("pr2",{force: true}).should("be.checked")
+        cy.get("[type='checkbox']").check(["pr2","dg2"],{force: true}).should("be.checked")
+    }) 
+
     it("unchecked Box",()=>{
-        cy.wait(2000)
-        cy.get("[type='checkbox']").uncheck(["pr2","dg2"],{force: true}).should("not.be.checked") //2 checkbox secimi
-        
-    })
+      cy.pause()
+      cy.get("[type='checkbox']").uncheck(["pr2","dg2"],{force: true}).should("not.be.checked")
+
+    }) 
+
+   
 })
