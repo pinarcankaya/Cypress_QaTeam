@@ -24,8 +24,12 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import 'cypress-file-upload';
 
-//elementi her zman resim dosyaisna cevirir
+
+
+
+//elementi her zaman resim dosyasina cevirir
 Cypress.Commands.add('UploadImage', (elementPath,imagePath,logoName)=>{
     cy.fixture(imagePath).as('logo') 
     cy.get(elementPath).then(function (el) {
