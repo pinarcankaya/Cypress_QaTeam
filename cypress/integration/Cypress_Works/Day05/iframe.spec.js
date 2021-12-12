@@ -9,7 +9,7 @@ context("Iframe",()=>{
         return getIframleDocument().its("0.contentDocument.body").should('not.be.undefined')
     }
 
-    it("iframe Test",()=>{
+    it.skip("iframe Test",()=>{
        cy.visit(url)
 
        //iframe icine giridkten sonraki elementleri kontrol etmek icin
@@ -22,7 +22,7 @@ context("Iframe",()=>{
 
 
    //2.YOL commends.js deki hazir methodu kullanarak iframe girmek
-    it.skip("Iframe 2.Yol",()=>{
+    it.only("Iframe 2.Yol",()=>{
         cy.visit("http://test.iyikisordun.com/pages/UI/ribbons.html")
         cy.getIframe('#FileFrame').find('#name_').should('have.text','Cypress_')
         cy.getIframe('#FileFrame').find('#surname_').should('have.text','Test')

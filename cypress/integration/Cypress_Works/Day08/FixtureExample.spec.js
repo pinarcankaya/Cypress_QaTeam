@@ -12,14 +12,15 @@ context("Fixtures",()=>{
 
     it("Login Senaryosu",()=>{
         cy.visit("https://test.iyikisordun.com/login.php")
+
        cy.fixture("loginSenaryosu").then((user)=>{
+
+        
         cy.get("input[name='username']").type(user.userName)
         cy.get("input[name='password']").type(user.pass)
         cy.get("input[name='submit']").click()
 
-        ///   ! sonradan degisecek olma ihtimali olan datalarimizi fixtures icine yaziyoruz
-        /// !config properties gibi
-        // !projeyi daha rahat yonetmek icin
+       
        })
     })
 })

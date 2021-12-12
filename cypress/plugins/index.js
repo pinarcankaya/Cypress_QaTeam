@@ -15,8 +15,40 @@
 /**
  * @type {Cypress.PluginConfig}
  */
+
+const fs=require('fs')
+const path=require('path')
+
 // eslint-disable-next-line no-unused-vars
+// ! ilgili klasorun isimlerini uzantilariyla birlikte verir 
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-}
+  on('task',{
+    GetAllFileNames(folderPath){
+      files=[]
+      fs.readdirSync(folderPath).forEach(file=>{
+        files.push(file)
+      });
+      return files
+    }
+})
+
+//  on('task',{
+//    GetAllFileNames(folderPath){
+//      deleteAllFileInTargetFolder(folderPath){
+//        if(fs.existsSync(folderpath)){
+//          fs.readdir(folderPath,(err,files)=>{
+//            if (err) throw err;
+
+//            for(const file of files){
+//              fs.unlink(path.join(folderPath,file),err={
+//                if (err) throw err;
+//              });
+//            }
+//          });
+//      }
+//      return true
+//    }
+// })
+ }
