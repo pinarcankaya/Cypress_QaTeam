@@ -16,6 +16,8 @@ context("Alert",()=>{
       cy.on("window:confirm",()=>true)  //alert te "ok" butonuna basar   
       cy.on("window:confirm",()=>false)  //alert te "cancel" butonuna basar//dismiss
     })
+     //?test yaparken alert acildigini gormuyoruz cunku test akisinin bloklanmamasi icin 
+        //?cypress tarafindan visible olmasi engelleniyor
 
     it.skip("alert dismis",()=>{
       cy.visit("https://the-internet.herokuapp.com/javascript_alerts")

@@ -9,18 +9,19 @@ context("Cypress selector",()=>{
     const submitButtonXpath="//input[@name='submit']"
 
     //Cypress'in bagli oldugu google'dan Ranorex Selocity eklentisini indiriyoruz
-    //Path'leri Copy selector ile aliyoruz.
+    //Path'leri Copy selector ile aliyoruz.//istege bagli
+    //locaterlari hel css ile hem xpath ile alabilriz
     
  it.skip("Path kullanimi",()=>{
      cy.visit(Cypress.config("baseUrl"))
-     cy.get("input[name='username']").type(eMail)
+     cy.get("input[name='username']").type(eMail)  //type=sendkeys==> veri gondermek icin
      cy.get("input[name='password']").type(pass)
      cy.get("input[name='submit']").click()
-     cy.get(".m-0.text-dark").should("have.text","Dashboard")
+     //!cy.get(".m-0.text-dark").should("have.va","Dashboard")//sitede bulunan yazi bir text ise have.text kukllanilabilir
     })
 
     //Xpath kullanabilmek icin;
-    //1.Terminale npm install -D cypress-xpath  yazip xpath'i indiriyoruz.
+    //1.Terminale "npm install -D cypress-xpath"  yazip xpath'i indiriyoruz.
     //2.cypress/support/index.js'e require('cypress-xpath')  yi yapistiriyoruz
 
 
