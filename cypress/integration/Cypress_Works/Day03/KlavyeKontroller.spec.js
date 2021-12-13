@@ -13,11 +13,14 @@ context("Form Elemanlari",()=>{
     })
     it("check Box",()=>{
         cy.visit(url)
-      //  cy.get("[type='checkbox']").check("pr2",{force: true}).should("be.checked")
+        cy.get("[type='checkbox']").check("pr2",{force: true}).should("be.checked")
         cy.get("[type='checkbox']").check(["pr2","dg2"],{force: true}).should("be.checked")
+        //check kullanacaksak type ve value degerlerini kullnamamiz gerekiyor
+        //radio button ve checkbox larda genellikle force true kullanmamiz gerekiyor
+          
     }) 
 
-    it("unchecked Box",()=>{
+    it.skip("unchecked Box",()=>{
       cy.pause()
       cy.get("[type='checkbox']").uncheck(["pr2","dg2"],{force: true}).should("not.be.checked")
 
