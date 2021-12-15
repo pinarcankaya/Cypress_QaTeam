@@ -28,13 +28,15 @@ context("Form Elemanlari",()=>{
        // !radio buttonlara  ulasmak icin 2.yol
        //tum locateri alip get icinde kullanabilirz ama bu durumda da
        //{force: true} kullanmmaiz gerekir
-        cy.get("#customRadio3").click({force: true})  
-        cy.get("#customRadio3").check({force: true}).should('be.checked')//secili mi
+       // cy.get("#customRadio3").click({force: true})  
+       // cy.get("#customRadio3").check({force: true}).should('be.checked')//secili mi
         //element disabled olsa bile force true ile secebiliyoruz
 
 
         //  ilk radio button secilecekse. getten sonra checkten once first()yazabilriiz
       // ornek==> cy.get('[type="radio"].XyzTypeRadio').first().check()
+
+     
     })
 
 
