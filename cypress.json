@@ -1,1 +1,11 @@
-{}
+{
+    "baseUrl" : "https://test.iyikisordun.com/login.php",
+
+
+    "env" :{
+        "username" : "cypress_test_1@gmail.com",
+        "pass"     :  "admin_123"
+    }  
+    
+}
+
