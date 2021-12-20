@@ -5,19 +5,21 @@
 context("Alert",()=>{
     const url="https://test.iyikisordun.com/pages/UI/modals.html"
    
-    it.skip("Alert uzerindeki teexti dogrulama",()=>{
+    it.only("Alert uzerindeki teexti dogrulama",()=>{
       cy.visit(url)
       cy.contains("Default Alert").click()
 
-      cy.on("window:alert",(str)=>{
-        expect(str).to.equal("Cypress alert kontrol.")
-      })
+     // cy.on("window:alert",(str)=>{
+       // expect(str).to.equal("Cypress alert kontrol.")
+     // })
      
-      cy.on("window:confirm",()=>true)  //alert te "ok" butonuna basar   
-      cy.on("window:confirm",()=>false)  //alert te "cancel" butonuna basar//dismiss
+    //  cy.on("window:confirm",()=>true)  //alert te "ok" butonuna basar   
+     // cy.on("window:confirm",()=>false)  //alert te "cancel" butonuna basar//dismiss
     })
+     //?test yaparken alert acildigini gormuyoruz cunku test akisinin bloklanmamasi icin 
+        //?cypress tarafindan visible olmasi engelleniyor
 
-    it.skip("alert dismis",()=>{
+    it("alert dismis",()=>{
       cy.visit("https://the-internet.herokuapp.com/javascript_alerts")
       cy.contains("Click for JS Confirm").click()
      // cy.on("window:confirm",()=>false) 
