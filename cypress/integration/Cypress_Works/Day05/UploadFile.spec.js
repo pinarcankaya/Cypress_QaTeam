@@ -8,22 +8,19 @@ context("Upload",()=>{
     it("file upload",()=>{
         cy.visit(url)
       cy.get("#exampleInputFile").attachFile("kus_resmi.jpg")
-      //yukleyecegimiz dosya sadece fixture icinde bulunmali
+   
+      //yukleyecegimiz dosya SADECE fixture icinde bulunmali
+      //uzantisi sunlardan biri olmali: 
+      //"".json, .js, .coffee, .html, .txt, .csv, .png, .jpg, .jpeg, .gif, .tif, .tiff, .zip"
     
      
-
-
-
-
-
-
-      //cy.xpath("(//label[@class='custom-file-label'])[1]").should("have.text","kus_resmi.jpg")
-     // cy.xpath("(//label[@class='custom-file-label'])[1]").should("include.text","kus")
+    //cy.xpath("(//label[@class='custom-file-label'])[1]").should("have.text","kus_resmi.jpg")
+    // cy.xpath("(//label[@class='custom-file-label'])[1]").should("include.text","kus")
 
      //2.yol method ile
      //3 tane parametre giriyoruz
      //1==>element locate  //2=> elementin uzantisiz path'i //3=>>yuklenecek dosya ismi
-    // cy.UploadImage("#exampleInputFile","kus_resmi.jpg","kus")
+     cy.UploadImage("#exampleInputFile","kus_resmi.jpg","kus")
 
 })
 

@@ -44,7 +44,7 @@ import 'cypress-file-upload';
 
 
 Cypress.Commands.add('getIframe', (iframe) => {
-    return cy.get(iframe)
+    return cy.get(iframe)  //locate gelecek
         .its('0.contentDocument.body')
         .should('be.visible')
         .then(cy.wrap);
@@ -119,3 +119,6 @@ Cypress.Commands.add('UploadImage', (elementPath,imagePath,logoName)=>{
             .then(cy.wrap);
     })
 })
+
+require('cypress-downloadfile/lib/downloadFileCommand')
+

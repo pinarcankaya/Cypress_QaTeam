@@ -19,6 +19,7 @@
 const fs=require('fs')
 const path=require('path')
 
+
 // eslint-disable-next-line no-unused-vars
 // ! ilgili klasorun isimlerini uzantilariyla birlikte verir 
 module.exports = (on, config) => {
@@ -51,4 +52,12 @@ module.exports = (on, config) => {
 //      return true
 //    }
 // })
- }
+ 
+
+
+}
+
+const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
+module.exports = (on, config) => {
+  on('task', {downloadFile})
+}

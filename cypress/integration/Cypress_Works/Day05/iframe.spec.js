@@ -25,6 +25,7 @@ context("Iframe",()=>{
     it.only("Iframe 2.Yol",()=>{
         cy.visit("http://test.iyikisordun.com/pages/UI/ribbons.html")
         cy.getIframe('#FileFrame').find('#name_').should('have.text','Cypress_')
+        //commands.js'ten gelen method
         cy.getIframe('#FileFrame').find('#surname_').should('have.text','Test')
         
     })
@@ -38,6 +39,7 @@ context("Iframe",()=>{
         .pause()
         .type('Merhaba Dunya')
 
+        //iframe icinde herhangi bir texti silip yenisini yazmak icin
     
     })
     //iframe shadow gibi farkli bir iframe cikarsa karsimiza  find'den once shadow yazabiliriz

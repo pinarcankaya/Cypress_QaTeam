@@ -16,7 +16,7 @@ context("Hata ayiklama yontemleri",()=>{
       //  cy.xpath(submitInputXpath).click()
   //
         cy.visit("https://test.iyikisordun.com/index.php")
-        cy.xpath("//label[@for='todoCheck1']").click().debug()
+        cy.xpath("//label[@for='todoCheck']").click().debug()  //debug=hata ayiklamasi
         cy.xpath("(//li[@class='done'])[1]").should("have.class","done")
         //cy.pause()
       
