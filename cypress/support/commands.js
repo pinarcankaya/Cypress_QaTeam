@@ -64,8 +64,16 @@ Cypress.Commands.add("Login",(email=Cypress.env('username'),pass=Cypress.env('pa
     const passwordpath="input[name='password']"
     const submitpath="input[name='submit']"
 
-   //const email="cypress_test_1@gmail.com"   
-   // const pass="admin_123"
+   
+
+    cy.ClearAndSendKeys(emailpath,email)   //!elementin pathi ve gonderilecek deger girilir
+   // cy.get(emailpath).type(email)
+    cy.ClearAndSendKeys(passwordpath,pass)
+    //cy.get(passwordpath).type(pass)
+    cy.ClickElement(submitpath)
+   // cy.get(submitpath).click({force:true})
+
+   
 
     cy.ClearAndSendKeys(emailpath,email)   //!elementin pathi ve gonderilecek deger girilir
     //cy.get(emailpath).type(email)
@@ -73,9 +81,9 @@ Cypress.Commands.add("Login",(email=Cypress.env('username'),pass=Cypress.env('pa
   //  cy.get(passwordpath).type(pass)
     cy.ClickElement(submitpath)
    // cy.get(submitpath).click({force:true})
+
+
 })
-
-
 Cypress.Commands.add("ClearAndSendKeys",(elementpath,value)=>{  ///temizle ve gonder methodu
     const field=cy.get(elementpath).should("be.visible")
     field.clear()
