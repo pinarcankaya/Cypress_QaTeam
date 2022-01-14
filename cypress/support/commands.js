@@ -25,6 +25,8 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import 'cypress-file-upload';
+require('@4tw/cypress-drag-drop')
+import '@4tw/cypress-drag-drop'
 
 //!  bu method yuklenecek tum dosyalari resim dostasina cevirir
 //  Cypress.Commands.add('UploadImage',(elementPath,imagePath,logoName)=>{
@@ -120,4 +122,29 @@ Cypress.Commands.add('UploadImage', (elementPath,imagePath,logoName)=>{
 
 
    
+})
+
+Cypress.Commands.add('getText_Product_name_css',(css)=> {
+    cy.get(css)
+       .invoke('val').then((product)=>{
+           return((product));
+       })
+})
+
+Cypress.Commands.add('draganddrop', (dragSelector, dropSelector) => {
+    cy.get(dragSelector).should('exist')
+        .get(dropSelector).should('exist');
+
+    const draggable = Cypress.$(dragSelector)[0]; // Pick up this
+    const droppable = Cypress.$(dropSelector)[0]; // Drop over this
+
+    const coords = droppable.getBoundingClientRect()
+    draggable.dispatchEvent(new MouseEvent('mousedown'));
+    draggable.dispatchEvent(new MouseEvent('mousemove', { clientX: 10, clientY: 0 }));
+    draggable.dispatchEvent(new MouseEvent('mousemove', {
+        clientX: coords.left + 10,
+        clientY: coords.top + 10  // A few extra pixels to get the ordering right
+    }));
+    draggable.dispatchEvent(new MouseEvent('mouseup'));
+    return cy.get(dropSelector);
 })
