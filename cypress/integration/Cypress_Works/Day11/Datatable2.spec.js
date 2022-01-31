@@ -1,5 +1,8 @@
 ///<reference types ="Cypress"/>
 
+//:nth-child()aynı seviyedeki tum elemanlarını seçmek için kullanılır.
+//Parantez icine,rakam,odd,even yada ${i} yazilarak siniflandirma yapilabilir
+
 
 //Datatable'in sutun isimlerinin gorunulurlugunu ve isimlerini dogrulayalim
 context("Datatable", () => {
@@ -12,15 +15,16 @@ context("Datatable", () => {
         cy.get("#example1 > tbody >tr").then((satirSayisi) => {
             satirSayisi = satirSayisi.length
             cy.log(satirSayisi)
+            cy.get("#example1 > tbody >tr").should("have.length", "57")
 
-//:nth-child()aynı seviyedeki tum elemanlarını seçmek için kullanılır.
-//Parantez icine,rakam,odd,even yada ${i} yazilarak siniflandirma yapilabilir
+
             for (let i = 1; i <= satirSayisi; i++) {
+
                 cy.get(`#example1 > tbody > tr:nth-child(${i}) > td:nth-child(2)`)
                     .invoke("text").then((browserName) => {
                         cy.log(browserName)
                         // cy.get("#example1_filter [aria-controls]").type(browserName)
-//Ustteki satir ,input alanini silip yenisini ekleyemedigi icin hata veriyor.
+                        //Ustteki satir ,input alanini silip yenisini ekleyemedigi icin hata veriyor.
 
                         cy.ClearAndSendKeys("#example1_filter [aria-controls]", browserName)
                         cy.wait(1000)

@@ -14,6 +14,7 @@ context("Then Yapisi" ,()=>{
        cy.get("input#exampleInputEmail1").invoke('val').then((emailAdress)=>{ 
             mail=emailAdress
             cy.log(emailAdress)
+            cy.pause()
             
            cy.wrap(emailAdress).as("newEmail") //!!Wrap then fonk.icinde olusturulmalidir.
                                                //wrap'in icine then 'deki isim TIRNAKSIZ yazilmalidir.
@@ -33,6 +34,9 @@ context("Then Yapisi" ,()=>{
         cy.pause()
         cy.get("@newEmail").then((email)=>{
             cy.get("input#exampleInputEmail1").type(email)
+            cy.get("input#exampleInputEmail1").invoke("val").then((aaa)=>{
+              cy.log(aaa)
+            })
        }) 
 
        
